@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Add to Cart Example</title>
+</head>
+
+<body>
+  <h1>Product Name</h1>
+  <p>Price: $10.00</p>
+  <button id="addToCartBtn">Add to Cart</button>
+  <span id="cartCount">0</span> item(s) in cart
+  <script>
+
+    function addToCart() {
+      let cartCountElement = document.getElementById("cartCount");
+
+
+      let cartCount = parseInt(cartCountElement.innerText);
+
+
+      cartCount++;
+
+
+      cartCountElement.innerText = cartCount;
+    }
+
+
+    let addToCartBtn = document.getElementById("addToCartBtn");
+    addToCartBtn.addEventListener("click", addToCart);
+  </script>
+</body>
+
+</html>

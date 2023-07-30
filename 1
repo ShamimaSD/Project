@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dynamic Item Display</title>
+
+</head>
+
+<body>
+  <div id="itemContainer">
+
+  </div>
+  <script src="script.js">
+
+    function fetchData() {
+      fetch('https://api.example.com/items')
+        .then(response => response.json())
+        .then(data => {
+
+          displayItems(data);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+
+
+    function displayItems(items) {
+      const itemContainer = document.getElementById('itemContainer');
+
+
+      itemContainer.innerHTML = '';
+
+      items.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('item');
+
+
+        itemElement.innerHTML = `
+            <img src="${item.imageUrl}" alt="${item.name}">
+            <h2>${item.name}</h2>
+            <p>${item.description}</p>
+            <span>Price: $${item.price}</span>
+        `;
+
+        itemContainer.appendChild(itemElement);
+      });
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchData();
+    });
+
+  </script>
+</body>
+
+</html>

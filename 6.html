@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="adminButton">Admin Login</button>
+
+  <script>
+    function showUsernamePopup() {
+      const username = prompt("Enter username:");
+      if (username === "iits") {
+        showPasswordPopup();
+      } else {
+        alert("Invalid username!");
+      }
+    }
+
+    function showPasswordPopup() {
+      const password = prompt("Enter password:");
+      if (password === "23") {
+        alert("Login successful!");
+      } else {
+        alert("Invalid password!");
+      }
+    }
+
+    document.getElementById("adminButton").addEventListener("click", function () {
+      showUsernamePopup();
+    });
+  </script>
+</body>
+
+</html>

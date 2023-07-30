@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Item Filter</title>
+</head>
+
+<body>
+  <h1>Item Filter</h1>
+
+  <label for="category">Select a category:</label>
+  <select id="category">
+    <option value="Category A">Category A</option>
+    <option value="Category B">Category B</option>
+    <option value="Category C">Category C</option>
+
+  </select>
+
+  <button onclick="filterItems()">Filter</button>
+
+  <ul id="filteredItemsList">
+
+  </ul>
+
+  <script>
+    const items = [
+      { name: 'Item 1', category: 'Category A' },
+      { name: 'Item 2', category: 'Category B' },
+      { name: 'Item 3', category: 'Category A' },
+      { name: 'Item 4', category: 'Category C' },
+      { name: 'Item 5', category: 'Category A' }
+    ];
+
+    function filterItems() {
+      const selectedCategory = document.getElementById('category').value;
+      const filteredItems = items.filter(item => item.category === selectedCategory);
+      displayFilteredItems(filteredItems);
+    }
+
+    function displayFilteredItems(filteredItems) {
+      const filteredItemsList = document.getElementById('filteredItemsList');
+      filteredItemsList.innerHTML = '';
+
+      filteredItems.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item.name;
+        filteredItemsList.appendChild(listItem);
+      });
+    }
+  </script>
+</body>
+
+</html>

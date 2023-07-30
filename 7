@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    <button type="button" onclick="checkCredentials()">Login</button>
+  </form>
+
+
+  <div id="addItemForm" style="display: none;">
+    <h2>Add New Item</h2>
+
+    <button type="button" onclick="hideAddItemForm()">Close</button>
+  </div>
+  <script>
+    function checkCredentials() {
+
+      const correctUsername = 'user123';
+      const correctPassword = 'pass456';
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === correctUsername && password === correctPassword) {
+        showAddItemForm();
+      } else {
+        alert('Invalid credentials. Please try again.');
+      }
+    }
+
+    function showAddItemForm() {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('addItemForm').style.display = 'block';
+    }
+
+    function hideAddItemForm() {
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('addItemForm').style.display = 'none';
+    }
+
+
+  </script>
+
+</body>
+
+</html>
